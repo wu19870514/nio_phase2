@@ -1,0 +1,10 @@
+.m-abs { position: absolute; width: auto; height: auto; }
+.hmiddle { display: table; vertical-align: middle; _position: absolute; overflow: hidden; }
+    .hmiddle .subwrap { vertical-align: middle; display: table-cell; _position: absolute; _top: 50%; }
+        .hmiddle .subwrap .content { _position: relative; _top: -50%; }
+.m-alert { position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,.6); z-index: 99999999; display: none; }
+    .m-alert .d-albg { left: 50%; top: 50%; width: 72%; min-height: 180px; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border-radius: 10px; background: #fff; }
+    .m-alert .d-altxt { width: 80%; margin: 30px 10% 50px; padding-bottom: 70px; }
+        .m-alert .d-altxt .content { margin: 0; padding: 0; width: 100%; height: auto; border: 0; line-height: 26px; letter-spacing: 1px; font-size: 26px; color: #606060; text-align: center; font-family:"黑体"; }
+.nobtn.m-alert .d-altxt { height: 200px; }
+.m-alert .d-albutton {font-family:"黑体"; left: 0; bottom: 0; width: 100%; height: 100px; line-height: 100px; border-top: 1px solid #888; color: #00bcbc; font-size: 30px; font-weight: normal; text-align: center; letter-spacing: 2px;}

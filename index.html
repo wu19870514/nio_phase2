@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>邀请好友试驾，赢三亚之旅！</title>
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/preloadjs.min.js"></script>
+    <script src="js/orienter.js"></script>
+    <script src="js/jquery.mCustomScrollbar.js"></script>
+    <script src="js/index.js"></script>
+
+    <link rel="stylesheet" href="css/cmalert.css">
+    <script src="js/cmalert.js"></script>
+
+    <script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="js/wx.js"></script>
+
+    <script src="js/qrcode.js"></script>
+    
+    <!--移动端版本兼容 -->
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if(/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if(version > 2.3) {
+                document.write('<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi viewport-fit=cover">');
+            } else {
+                document.write('<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi viewport-fit=cover">');
+        }
+    </script>
+    <!--移动端版本兼容 end -->
+
+    <!-- Google Analytics -->
+	<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-135521719-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+</head>
+<body>
+
+	<!--<div id="lon" style="position:absolute;top:0;left:0;z-index:999;background:#000;color:#FFF;width:300px;height:300px;"></div>-->
+
+    <!--<div class="loading">
+    	<img src="img/loading-logo.png" class="loading-logo" />
+        <div id="rate">0%</div>
+    </div>-->
+
+    
+    <div class="orient"><div>请竖屏观看</div></div>
+    
+    
+    <div class="share-tips">
+    	<div class="share-t1">分享给<br />更多小伙伴</div>
+        <!--<img src="img/share-p1.png" class="share-p1" />-->
+    </div>
+    
+    
+    <div class="wrap">
+
+        <!-- <img src="img/logo.png" class="logo" style="pointer-events: none;" /> -->
+    	
+        
+        <!--<div class="share">
+        	<img src="img/hold-save.png" class="tips" />
+        </div>-->
+        
+        
+        
+        
+        <div class="generting">专属海报生成中...</div>
+        <div class="gray-box"></div>
+        
+        
+        
+        
+        <div class="s1">
+            
+            <div class="s1-bg">
+                <img src="img/new-t1.png" class="new-t1" style="pointer-events: none;" />
+                <img src="img/new-t2-1.png" class="new-t2-1" style="pointer-events: none;" />
+                <img src="img/new-t2-2.png" class="new-t2-2" style="pointer-events: none;" />
+                <!--<img src="img/new-t2-3.png" class="new-t2-3" style="pointer-events: none;" />-->
+                <!-- <img src="img/new-t3.png" class="new-t3" style="pointer-events: none;" /> -->
+
+
+                <!-- <div class="get-three-seat"></div> -->
+                
+            </div>
+
+
+            <div class="mobile-num"><input type="text" class="tt1 mobile" /></div>
+            <div class="submit"></div>
+
+            
+            
+        </div>
+        
+        <div class="s3" style="display:none">
+        
+        	<img src="" class="huge-kv" />
+        
+        	<canvas id="canvas1" style="position:absolute;left:0;top:0"></canvas>
+            <div class="qr" id="qrcode" style="position:absolute;left:-999px;">
+                <img id="qr-img" />
+            </div>
+        	<!--<img src="img/kv-text.png" class="text" /-->
+            <div class="kv-frame"></div>
+        	<img src="" class="kv" />
+            <div class="press-tips">
+            	<img src="img/press-text.png" class="save-pic" />
+                <img src="img/share-tips.png" class="share-text" />
+            </div>
+            
+            <!-- <img src="img/bg-cover.png" class="bg-cover" /> -->
+            
+            <!--<img src="img/leave-message-tips.png" class="leave-message-tips" />-->
+            <!-- <img src="img/leave-message.png" class="leave-message" /> -->
+        	<!--<img src="img/s3-t1.png" class="t1" />
+            <img src="img/s3-t2.png" class="t2" />-->
+            <div class="form-input name"><input type="text" id="name" class="tt1" /></div>
+            <div class="form-input province">
+                <div class="sel-box">
+                    <select class="sel" id="province">
+                    </select>
+                </div>
+                <img src="img/sel-arrow.png" class="sel-arrow" style="pointer-events: none;" />
+            </div>
+            <div class="form-input city">
+                <div class="sel-box">
+                    <select class="sel" id="city">
+                    </select>
+                </div>
+                <img src="img/sel-arrow.png" class="sel-arrow" style="pointer-events: none;" />
+            </div>
+            <div class="form-input address"><input type="text" id="address" class="tt1" /></div>
+            <!-- 验证码部分 -->
+             <div  class="form-input verify">
+             	<input type="text" id="vcode" class="tt2" />
+                <img id="vcodeimg" src="../index.php?c=Public&a=verify" onclick="setvcode();" />
+            </div>
+            <img src="img/ok.png" class="btn submit2" />
+        </div>
+        
+        
+        
+        
+        <div class="succ" style="display:none">
+            <img src="img/logo.png" class="logo" style="bottom:25px;pointer-events: none;" />
+        	<img src="img/succ-title.png" class="succ-title" style="pointer-events: none;" />
+            <img src="img/title-line.png" class="line" style="pointer-events: none;" />
+            <img src="img/succ-text.png" class="succ-text" style="pointer-events: none;" />
+        	<!--<div class="create-my" style="background:url(img/i-know.png) no-repeat;width:352px;height:58px"></div>-->
+            <!-- <img src="img/succ-tips.png" class="succ-tips" style="pointer-events: none;" /> -->
+        </div>
+        
+        
+        
+        <!--<img src="img/music-on.png" class="music-icon" />-->
+    	
+        <img src="" class="kv-img" id="kv-img" style="position:absolute;left:-999px;" />
+        <img src="img/qr-logo.png" id="qr-logo" style="position:absolute;left:-999px;" />
+        
+    </div>
+    
+
+    <script>
+	var kvNum=Math.floor(Math.random()*3+1);
+
+	$("#kv-img").attr("src","img/kv"+kvNum+".jpg");
+	function checkMobile(str) {
+        var re = /^1\d{10}$/
+        if (re.test(str)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function setvcode(){
+        $("#vcodeimg").attr("src","../index.php?c=Public&a=verify&t="+(new Date().getTime()));
+    }
+
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串  
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
+    var Request = new Object();
+    Request = GetRequest();
+
+    var channel = Request['channel'] == undefined ? "" : Request['channel'];
+
+
+    function getProvince(){
+        $.ajax({
+            url:"../index.php?c=form&a=getprovince",
+            type:"GET",
+            data:{},
+            dataType:"json",
+            success:function(resp){
+                $(resp).each(function(k,v){
+                    $("#province").append("<option value='"+v.id+"'>"+v.name+"</option>");
+                })
+                getCity();
+            }
+        })
+    }
+
+    function getCity(){
+        var pid = $("#province").val();
+        $.ajax({
+            url:"../index.php?c=form&a=getcity",
+            type:"GET",
+            data:{
+                pid:pid
+            },
+            dataType:"json",
+            success:function(resp){
+                $("#city").empty();
+                $(resp).each(function(k,v){
+                    $("#city").append("<option value='"+v.id+"'>"+v.name+"</option>");
+                })
+            }
+        })
+    }
+	
+    $(document).ready(function(){
+		getProvince();
+        $("#province").change(function(){
+            getCity();
+        })
+
+		$('input').on('blur',function(event){    
+			var target = this;
+			setTimeout(function(){
+			   target.scrollIntoView(true);
+			},100);
+	    });
+		
+		
+        var isloading = false;
+        $(".btn_sendcode").click(function(){
+            if(isloading){
+                return;
+            }
+            var mobile = $(".mobile").val();
+            if(mobile == ""){
+                cmalert("请输入手机号码");
+                return;
+            }
+            if(!checkMobile(mobile)){
+                cmalert("手机号码不正确");
+                return;
+            }
+
+            isloading = true;
+            $.ajax({
+                url:"../index.php?c=form&a=getcode",
+                type:"POST",
+                data:{
+                    mobile:mobile
+                },
+                dataType:"json",
+                success:function(resp){
+                    if(resp.code == 1){
+                        cmalert("验证码已发送");
+                    }else{
+                        cmalert(resp.msg);
+                    }
+                },
+                complete:function(){
+                    isloading = false;
+                }
+            })
+        })
+		
+		var obj =$('#canvas1').get(0);
+		var obj2 =$('#canvas2').get(0);
+		var imgBg;
+		var imgQr;
+		var imgQrLogo;
+		var mCtx;
+		
+		
+		$(".submit").click(function(){
+			ga('send', 'event', 'btn', 'submit', 'niohn');
+            if(isloading){
+                return;
+            }
+            var mobile = $(".mobile").val();
+            // var sms_code = $(".sms_code").val();
+
+            if(mobile == ""){
+                cmalert("请输入手机号码");
+                return;
+            }
+            if(!checkMobile(mobile)){
+                cmalert("手机号码不正确");
+                return;
+            }
+
+            // if(sms_code == ""){
+            //     cmalert("请输入验证码");
+            //     return;
+            // }
+
+            isloading = true;
+
+            $(".generting,.gray-box").fadeIn();
+            
+            $.ajax({
+                url:"../index.php?c=form&a=genminiqr",
+                type:"POST",
+                data:{
+                    mobile:mobile,
+                    // sms_code:sms_code,
+                    channel:channel
+                },
+                dataType:"json",
+                success:function(resp){
+                    if(resp.code == 1){
+						
+						$("#qr-img").attr("src",resp.miniqrcode);
+                        
+                        obj.width = 640;
+                        obj.height = 1138;
+                        mCtx = obj.getContext('2d');
+                        imgBg = document.getElementById("kv-img");
+                        mCtx.drawImage(imgBg,0,0,640,1138);
+
+                        var miniqr = new Image();
+                        miniqr.src = resp.miniqrcode;
+                        miniqr.onload = function(){
+                            imgQr = document.getElementById("qr-img");
+                            imgQrLogo = document.getElementById("qr-logo");
+                            mCtx.drawImage(imgQr,486,925,120,120);
+
+                            var imgdata_bg = $('#canvas1').get(0).toDataURL( 'image/png', 1 );
+
+                            $.ajax({
+                                url:"../index.php?c=form&a=genposter",
+                                type:"POST",
+                                data:{
+                                    code:resp.friend_id,
+                                    imgdata:imgdata_bg
+                                },
+                                dataType:"json",
+                                success:function(resp2){
+                                    if(resp2.code == 1){
+                                        $(".kv,.huge-kv").attr("src",resp2.miniposter);
+                                        $('#canvas1').css("left","-9999px");
+                                        $(".generting,.gray-box").fadeOut();
+                                        $(".s1").fadeOut();
+                                        $(".s3").fadeIn();
+                                    }
+                                }
+                            })   
+                        }
+                    }else{
+                        cmalert(resp.msg);
+                    }
+                },
+                complete:function(){
+                    isloading = false;
+                }
+            })
+		});
+
+        $(".submit2").click(function(){
+            if(isloading){
+                return;
+            }
+            var mobile = $(".mobile").val();
+            var address = $("#address").val();
+            var province = $("#province").val();
+            var city = $("#city").val();
+            var name = $("#name").val();
+            var vcode = $("#vcode").val();
+
+
+            if(name == ""){
+                cmalert("请输入姓名");
+                return;
+            }
+            if(mobile == ""){
+                cmalert("请输入手机号码");
+                return;
+            }
+            if(!checkMobile(mobile)){
+                cmalert("手机号码不正确");
+                return;
+            }
+
+            if(address == ""){
+                cmalert("请输入地址");
+                return;
+            }
+
+            if(vcode == ""){
+                cmalert("请输入验证码");
+                return;
+            }
+
+            reg=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+            if(reg.test(name)){
+                cmalert("您输入的信息含有非法字符！");
+                return false;
+            }
+            if(reg.test(province)){
+                cmalert("您输入的信息含有非法字符！");
+                return false;
+            }
+            if(reg.test(city)){
+                cmalert("您输入的信息含有非法字符！");
+                return false;
+            }
+            if(reg.test(address)){
+                cmalert("您输入的信息含有非法字符！");
+                return false;
+            }
+            if(reg.test(vcode)){
+                cmalert("您输入的信息含有非法字符！");
+                return false;
+            }
+
+            isloading = true;
+
+            $.ajax({
+                url:"../index.php?c=form&a=saveinfo",
+                type:"POST",
+                data:{
+                    mobile:mobile,
+                    address:address,
+                    province:province,
+                    city:city,
+                    name:name,
+                    vcode:vcode
+                },
+                dataType:"json",
+                success:function(resp){
+                    if(resp.code == 1){
+                        $(".s3").fadeOut();
+                        $(".succ").fadeIn();
+                    }else{
+                        cmalert(resp.msg);
+                    }
+                },
+                complete:function(){
+                    isloading = false;
+                }
+            })
+        })
+		
+    });
+	
+
+
+    </script>
+
+</body>
+</html>

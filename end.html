@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>邀请好友试驾，赢三亚之旅！</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!--移动端版本兼容 -->
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if(/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if(version > 2.3) {
+                document.write('<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi viewport-fit=cover">');
+            } else {
+                document.write('<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi viewport-fit=cover">');
+        }
+    </script>
+    <!--移动端版本兼容 end -->
+
+
+</head>
+<body>
+    
+    <div class="wrap">
+        
+        <div class="succ">
+            <img src="img/logo.png" class="logo" style="bottom:25px;pointer-events: none;" />
+            <img src="img/end-text.png" class="succ-text" style="pointer-events: none;" />
+            <img src="img/app-qr.png" class="succ-app" />
+        </div>
+        
+        
+    </div>
+
+</body>
+</html>
